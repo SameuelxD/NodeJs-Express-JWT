@@ -2,15 +2,17 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 require('dotenv').config()
-
-const app = express();
-
 // cors
 const cors = require('cors');
-var corsOptions = {
-    origin: '*',
+const app = express();
+
+// Configuración de CORS más completa
+const corsOptions = {
+    origin: '*', // Permitir solicitudes desde cualquier origen
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Permitir métodos específicos
+    credentials: true, // Permitir incluir cookies en las solicitudes (si es necesario)
     optionsSuccessStatus: 200
-}
+};
 app.use(cors(corsOptions));
 
 // capturar body
